@@ -15,12 +15,6 @@ En este equipo se instaló Ollama portátil en `%LOCALAPPDATA%/Programs/Periferi
 
 Alternativa manual: ejecutar `ollama serve` con `OLLAMA_NO_CLOUD=1`, descargar el modelo con `ollama pull qwen3:4b-instruct-2507-q4_K_M`, copiar `.env.example` a `.env` y ejecutar `npm run dev`. Sin `.env` ni `npm run local`, el servidor mantiene el modo offline identificado: es un simulador de pruebas, no un modelo de lenguaje.
 
-## Proveedor externo opcional
-
-Copiar `.env.example` a `.env`. Configurar `LLM_MODE=openai`, `LLM_API_KEY`, `LLM_MODEL` y `LLM_BASE_URL` para un proveedor compatible con Chat Completions que soporte llamadas a herramientas. Las claves permanecen en backend. Reiniciar después de configurar.
-
-Solo esta alternativa externa requiere una clave y crédito del proveedor. Para Ollama local no se usan. Nunca compartir `.env`, claves en capturas, repositorio ni logs. Verificar `/api/health` y realizar un turno real antes de la defensa. El modo offline no se presenta como IA conectada.
-
 ## Verificación
 
 ```powershell
