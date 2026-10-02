@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#122822" />
+    <title>Órdenes de compra · Perxia</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Solicitudes de demostración">
+      <a class="brand" href="/" aria-label="Órdenes de compra, inicio"
+        ><span class="brand-mark">P</span
+        ><span>perxia<span class="brand-caption">OPERACIONES INTELIGENTES</span></span></a
+      >
+      <div class="sidebar-heading">
+        <span class="eyebrow">ESPACIO DE TRABAJO</span>
+        <h2>Solicitudes</h2>
+        <p>Seis escenarios para recorrer el proceso de compra.</p>
+      </div>
+      <nav id="case-list" aria-label="Seleccionar solicitud"></nav>
+      <div class="sidebar-footer">
+        <span class="connection-dot"></span>SAP simulado<span
+          >Fixtures del reto · sociedad 1000</span
+        >
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <span>Compras <span class="separator">/</span> Asistente de órdenes</span
+        ><button id="new-session" class="quiet-button" type="button">Nueva conversación ↗</button>
+      </header>
+      <div class="workspace">
+        <section class="page-heading">
+          <span class="eyebrow">DEL CORREO A LA ORDEN</span>
+          <h1>Una compra, con todos<br />los controles.</h1>
+          <p>Revisa la solicitud, entiende las excepciones y decide con evidencia.</p>
+          <div id="provider-status" class="provider-status" role="status">
+            Comprobando conexión…
+          </div>
+        </section>
+        <div id="offline-notice" class="offline-notice" hidden>
+          Modo demostración sin LLM. Un simulador determinista recorre las herramientas; no está
+          conectado a un modelo. Todas las órdenes se crean en SAP simulado.
+        </div>
+        <div class="workspace-grid">
+          <section class="chat-panel" aria-labelledby="conversation-title">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">ASISTENTE</span>
+                <h2 id="conversation-title">Conversación</h2>
+              </div>
+              <span id="active-case" class="case-tag">sol-001</span>
+            </div>
+            <div
+              id="history"
+              class="history"
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions"
+            >
+              <div class="welcome">
+                <span class="welcome-icon" aria-hidden="true">↗</span>
+                <h3>Tu siguiente orden empieza aquí.</h3>
+                <p>
+                  Selecciona una solicitud y pide una vista previa o procesa el caso. Las
+                  excepciones requieren tu confirmación explícita.
+                </p>
+                <p class="welcome-note">
+                  Los valores y validaciones provienen de las herramientas.
+                </p>
+              </div>
+            </div>
+            <div id="confirmation" class="confirmation" hidden>
+              <span class="eyebrow">REQUIERE TU DECISIÓN</span>
+              <h3 id="confirmation-title">Confirma antes de crear</h3>
+              <p id="confirmation-description"></p>
+              <div class="confirmation-actions">
+                <button id="confirm-button" type="button" class="primary-button">
+                  Confirmar y crear OC</button
+                ><button id="cancel-button" type="button" class="quiet-button">No confirmar</button>
+              </div>
+            </div>
+            <div class="composer-area">
+              <div class="quick-actions">
+                <button id="preview-button" type="button">Ver vista previa</button
+                ><button id="process-button" type="button">Procesar solicitud</button>
+              </div>
+              <form id="chat-form">
+                <label class="sr-only" for="message">Mensaje al asistente</label
+                ><textarea
+                  id="message"
+                  placeholder="Pregunta por la solicitud o sus validaciones…"
+                  rows="2"
+                  maxlength="8000"
+                  required
+                ></textarea
+                ><button id="send-button" type="submit" aria-label="Enviar mensaje">↑</button>
+              </form>
+              <p id="status" class="status" role="status" aria-live="polite">
+                Listo para revisar una solicitud.
+              </p>
+            </div>
+          </section>
+          <aside class="review-column" aria-label="Resultados y actividad">
+            <section class="summary-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">VISTA DE LA ORDEN</span>
+                  <h2>Resumen</h2>
+                </div>
+                <span class="small-icon" aria-hidden="true">▤</span>
+              </div>
+              <div id="order-summary" class="order-summary">
+                <p class="empty-state">
+                  Al revisar una solicitud, aquí verás los valores, controles y evidencia devueltos
+                  por las herramientas.
+                </p>
+              </div>
+            </section>
+            <section class="tools-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">TRAZABILIDAD</span>
+                  <h2>Actividad del agente</h2>
+                </div>
+                <span id="tool-count" class="count">0</span>
+              </div>
+              <div id="tool-history" class="tool-history">
+                <p class="empty-state">Cada llamada mostrará su nombre, argumentos y resultado.</p>
+              </div>
+            </section>
+            <p class="review-note">
+              Revisa las excepciones antes de confirmar. Una solicitud bloqueada requiere corregir
+              su fuente.
+            </p>
+          </aside>
+        </div>
+        <footer class="page-footer">
+          <span>Perxia 2.0 · Órdenes de compra</span><span>Control, evidencia y trazabilidad.</span>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>

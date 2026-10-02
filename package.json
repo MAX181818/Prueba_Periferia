@@ -1,0 +1,25 @@
+{
+  "name": "periferia-ordenes-compra",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "start": "tsx src/server.ts",
+    "demo": "tsx demo.ts",
+    "typecheck": "tsc --noEmit",
+    "local": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-local.ps1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
